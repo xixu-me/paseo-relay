@@ -3,21 +3,37 @@
   "name": "paseo-relay",
   "main": "src/index.ts",
   "compatibility_date": "2026-04-11",
+  "workers_dev": false,
   "alias": {
-    "@getpaseo/relay/cloudflare": "./node_modules/@getpaseo/relay/dist/cloudflare-adapter.js"
+    "@getpaseo/relay/cloudflare": "./node_modules/@getpaseo/relay/dist/cloudflare-adapter.js",
   },
   "durable_objects": {
     "bindings": [
       {
         "name": "RELAY",
-        "class_name": "RelayDurableObject"
-      }
-    ]
+        "class_name": "RelayDurableObject",
+      },
+    ],
   },
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": ["RelayDurableObject"]
-    }
-  ]
+      "new_sqlite_classes": ["RelayDurableObject"],
+    },
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true,
+    },
+    "traces": {
+      "enabled": true,
+      "persist": true,
+      "head_sampling_rate": 1,
+    },
+  },
 }

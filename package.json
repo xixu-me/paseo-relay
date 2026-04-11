@@ -1,13 +1,21 @@
 {
   "name": "paseo-relay",
-  "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xixu-me/paseo-relay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xixu-me/paseo-relay/issues"
+  },
+  "homepage": "https://github.com/xixu-me/paseo-relay",
   "scripts": {
     "dev": "bunx wrangler dev",
     "deploy": "bunx wrangler deploy",
-    "check": "bun run typecheck && bun run test && bun run cf-typegen:check",
-    "typecheck": "tsc --noEmit",
+    "check": "bun run typecheck && bun run test && bun run cf-typegen:check && bunx wrangler deploy --dry-run",
+    "typecheck": "bun run cf-typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "cf-typegen": "bunx wrangler types",
@@ -17,11 +25,11 @@
     "@getpaseo/relay": "^0.1.52"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.40",
-    "@types/node": "^24.3.0",
-    "typescript": "^5.9.2",
+    "@cloudflare/vitest-pool-workers": "^0.8.71",
+    "@types/node": "^24.12.2",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4",
-    "wrangler": "^4.39.0"
+    "wrangler": "^4.81.1"
   },
   "packageManager": "bun@1.3.12"
 }

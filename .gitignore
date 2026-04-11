@@ -2,6 +2,7 @@ node_modules/
 .wrangler/
 coverage/
 dist/
+worker-configuration.d.ts
 .dev.vars
 .env
 .DS_Store
