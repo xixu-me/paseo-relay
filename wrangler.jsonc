@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "paseo-relay",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-11",
+  "alias": {
+    "@getpaseo/relay/cloudflare": "./node_modules/@getpaseo/relay/dist/cloudflare-adapter.js"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "RELAY",
+        "class_name": "RelayDurableObject"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["RelayDurableObject"]
+    }
+  ]
+}
