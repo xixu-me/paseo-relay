@@ -4,7 +4,7 @@
 
 自托管的 Paseo relay。
 
-该存储库将上游 `@getpaseo/relay/cloudflare` 适配器封装为一个轻量部署包装层。它不实现自定义 relay 协议、管理 API 或认证层。运行时契约与上游 Paseo 保持一致，而该存储库负责部署、校验和运维打包。
+该存储库将上游 [`getpaseo/paseo`](https://github.com/getpaseo/paseo) 的 `@getpaseo/relay/cloudflare` 适配器封装为一个轻量部署包装层。它不实现自定义 relay 协议、管理 API 或认证层。运行时契约与上游 Paseo 保持一致，而该存储库负责部署、校验和运维打包。
 
 ## 此存储库提供的内容
 
@@ -65,6 +65,15 @@ bun run oci:run
 ```
 
 OCI 镜像会在 `8080` 端口暴露 relay。
+
+### 运行预构建 OCI 镜像
+
+预构建镜像会发布到 GHCR：
+
+```bash
+docker pull ghcr.io/xixu-me/paseo-relay:main
+docker run --rm -p 8080:8080 -v paseo-relay-data:/var/lib/paseo-relay/do ghcr.io/xixu-me/paseo-relay:main
+```
 
 ## Cloudflare 部署
 
@@ -143,7 +152,7 @@ OCI 发布使用内置的 `GITHUB_TOKEN`。
 
 ## OCI 说明
 
-镜像基于 Wrangler 生成的 Worker bundle 构建，并由 `workerd` 提供服务。运行时镜像：
+镜像基于 Wrangler 生成的 Worker bundle 构建，并由 `workerd` 提供服务。预构建镜像会发布为 `ghcr.io/xixu-me/paseo-relay:main`。运行时镜像：
 
 - 监听 `:8080`
 - 将 Durable Object 状态持久化到 `/var/lib/paseo-relay/do`
