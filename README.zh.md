@@ -129,7 +129,7 @@ OCI 校验路径还会额外检查：
 
 ### 发布行为
 
-- 推送到 `main` 时，会先运行校验，然后部署 Worker 并发布 `ghcr.io/xixu-me/paseo-relay:main`
+- 推送到 `main` 且变更涉及发布相关文件时，会先运行校验，然后部署 Worker 并发布 `ghcr.io/xixu-me/paseo-relay:main`
 - 手动触发的 `workflow_dispatch` 运行可以选择只部署 Worker 和/或只发布 OCI 镜像
 
 ### 所需 secrets

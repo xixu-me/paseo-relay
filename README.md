@@ -129,7 +129,7 @@ The repository uses four workflows:
 
 ### Release behavior
 
-- pushes to `main` run validation, then deploy the Worker and publish `ghcr.io/xixu-me/paseo-relay:main`
+- pushes to `main` that change release-relevant files run validation, then deploy the Worker and publish `ghcr.io/xixu-me/paseo-relay:main`
 - manual `workflow_dispatch` runs can selectively deploy the Worker and/or publish the OCI image
 
 ### Required secrets

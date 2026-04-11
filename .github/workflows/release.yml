@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README*'
+      - 'docs/**'
+      - 'LICENSE'
   workflow_dispatch:
     inputs:
       deploy_worker:
