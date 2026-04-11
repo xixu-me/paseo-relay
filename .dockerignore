@@ -1,8 +1,11 @@
-node_modules/
-.wrangler/
-coverage/
-dist/
-dist-oci/
+.git
+.github
+.wrangler
+coverage
+dist
+dist-oci
+node_modules
+test
 worker-configuration.d.ts
 .dev.vars
 .dev.vars.*
@@ -10,3 +13,4 @@ worker-configuration.d.ts
 .env.local
 .env.*.local
 .DS_Store
+*.log

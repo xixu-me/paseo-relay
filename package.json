@@ -1,8 +1,15 @@
 {
   "name": "paseo-relay",
   "private": true,
+  "description": "Self-hosted Paseo relay.",
   "license": "MIT",
   "type": "module",
+  "keywords": [
+    "paseo",
+    "relay",
+    "cloudflare-workers",
+    "durable-objects"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xixu-me/paseo-relay.git"
@@ -19,7 +26,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "cf-typegen": "bunx wrangler types",
-    "cf-typegen:check": "bunx wrangler types --check"
+    "cf-typegen:check": "bunx wrangler types --check",
+    "oci:bundle": "bunx wrangler deploy --dry-run --outdir=dist-oci",
+    "oci:build": "bun run oci:bundle && docker build -t paseo-relay:latest .",
+    "oci:run": "docker run --rm -p 8080:8080 -v paseo-relay-data:/var/lib/paseo-relay/do paseo-relay:latest"
   },
   "dependencies": {
     "@getpaseo/relay": "^0.1.52"

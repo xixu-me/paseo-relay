@@ -50,4 +50,15 @@ describe("paseo relay worker", () => {
     expect(response.status).toBe(101);
     expect(response.webSocket).toBeDefined();
   });
+
+  it("upgrades a valid websocket relay v2 control request", async () => {
+    const response = await SELF.fetch("http://example.com/ws?role=server&serverId=daemon-1&v=2", {
+      headers: {
+        Upgrade: "websocket",
+      },
+    });
+
+    expect(response.status).toBe(101);
+    expect(response.webSocket).toBeDefined();
+  });
 });
