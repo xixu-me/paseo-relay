@@ -7,7 +7,7 @@
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["node", "@cloudflare/vitest-pool-workers"],
+    "types": ["node", "@cloudflare/vitest-pool-workers/types"],
     "paths": {
       "@getpaseo/relay/cloudflare": [
         "./node_modules/@getpaseo/relay/dist/cloudflare-adapter.d.ts"
