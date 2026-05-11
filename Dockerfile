@@ -8,7 +8,7 @@ COPY src ./src
 RUN bun install --frozen-lockfile
 RUN bunx wrangler deploy --dry-run --outdir=dist-oci
 
-FROM node:25-slim AS runtime
+FROM node:26-slim AS runtime
 ARG TARGETARCH
 
 RUN apt-get update && \
