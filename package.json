@@ -32,14 +32,14 @@
     "oci:run": "docker run --rm -p 8080:8080 -v paseo-relay-data:/var/lib/paseo-relay/do paseo-relay:latest"
   },
   "dependencies": {
-    "@getpaseo/relay": "^0.1.67"
+    "@getpaseo/relay": "^0.1.73"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.15.2",
-    "@types/node": "^25.6.0",
+    "@cloudflare/vitest-pool-workers": "^0.16.3",
+    "@types/node": "^25.6.2",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5",
-    "wrangler": "^4.87.0"
+    "wrangler": "^4.90.0"
   },
   "packageManager": "bun@1.3.12"
 }
